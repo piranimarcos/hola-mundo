@@ -1,0 +1,41 @@
+extends ../layout.jade
+block contenidos
+	body
+		section(class="full-height text-center", id="main-content")
+			div.data
+				nav(class="large-padding fondo-gris")
+					ul(class="no-list mediano")
+						li(class="pacifico col-md-3 inline-block")
+							a(href="/", class="green") Food Facilito 
+								small(class="lato small") Vive, convive y diviértete
+						li(class="col-md-3 inline-block")
+							a(href="/menu") Menu
+						li(class="col-md-3 inline-block")
+							a(href="/contacto") Contacto
+			div(class="col-md-5 center-block no-float top-space text-left")
+				h1 Agregar producto
+				form(class="form", method="post", action="/menu", style="margin-top: 2em")
+					div.form-group
+						label Nombre
+						input(type="text", name="titulo", placeholder="Ingrese el nombre del producto", class="form-control")
+					div.form-group
+						label Descripcion
+						textarea(type="text", name="descripcion", placeholder="Ingrese la descripcion del producto", class="form-control")
+					div.form-group
+						label Costo
+						input(type="number", name="costo", placeholder="Ingrese el costo del producto", class="form-control")
+					div.form-group
+						label Contraseña
+						input(type="password", name="password", placeholder="Ingrese la contraseña", class="form-control")
+					div(class="form-group text-right")
+						input(type="submit", class="btn btn-info", value="Guardar")
+
+				-if(password == "incorrecto"){
+					p(class="bg-danger text-center") Contraseña incorrecta, no se pudo cargar el producto
+				-}
+				-if(password == "correcto"){
+					p(class="bg-success text-center") El producto ha sido cargado correctamente
+				-}
+
+				
+

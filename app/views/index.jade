@@ -1,0 +1,18 @@
+extends layout.jade
+block contenidos
+	body
+		section(class="full-height text-center", id="main-content")
+			div.data
+				div(class="col-md-3 center-block no-float top-space")
+					img(src="img/icecream.png", class="animated fadeIn")
+					h1(class="pacifico big green animated fadeIn delay-1") Food Facilito
+
+					div(class="animated fadeInDown delay-2")
+						nav
+							h2 Ven, convive, diviértete.
+							a(href="/menu") Menu
+							= " - "
+							a(href="/contacto") Contacto
+
+	script(srs="https://code.jquery.com/jquery-2.1.1.min.js")
+	script(src="/js/main.js")
