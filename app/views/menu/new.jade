@@ -14,7 +14,7 @@ block contenidos
 							a(href="/contacto") Contacto
 			div(class="col-md-5 center-block no-float top-space text-left")
 				h1 Agregar producto
-				form(class="form", method="post", action="/menu", style="margin-top: 2em")
+				form(class="form", method="post", action="/menu", style="margin-top: 2em", enctype="multipart/form-data")
 					div.form-group
 						label Nombre
 						input(type="text", name="titulo", placeholder="Ingrese el nombre del producto", class="form-control")
@@ -24,6 +24,9 @@ block contenidos
 					div.form-group
 						label Costo
 						input(type="number", name="costo", placeholder="Ingrese el costo del producto", class="form-control")
+					div.form-group
+						label Imagen
+						input(type="file", name="imagen-avatar", class="form-control")
 					div.form-group
 						label Contraseña
 						input(type="password", name="password", placeholder="Ingrese la contraseña", class="form-control")

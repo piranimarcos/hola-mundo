@@ -1,10 +1,23 @@
 var express = require('express'),
   router = express.Router(),
-  mongoose = require('mongoose');
-  Comida = mongoose.model('Comida');
+  mongoose = require('mongoose'),
+  Comida = mongoose.model('Comida'),
+  cloudinary = require('cloudinary'),
+  multer = require('multer');
+
+
+
+  cloudinary.config({
+  	cloud_name: "dagby4tpi",
+  	api_key: "448881611674699",
+  	api_secret: "KjHWVtHc3b4SS7VmfF1yK3lNxp4"
+  });
+
+
 
 module.exports = function (app) {
   app.use('/', router);
+  app.use(multer({dest: "./uploads"}));
 };
 
 router.get('/menu/new', function (solicitud, respuesta) {
@@ -28,13 +41,15 @@ router.post('/menu', function (solicitud, respuesta) {
 
 			var producto = new Comida(data);
 
-			producto.save(function(err){
+			console.log(solicitud.files);
+
+			/*producto.save(function(err){
 				////objeto json en la database
 				console.log(producto);
 				respuesta.render('menu/new',{
 					password: "correcto"
 				});
-			});
+			});*/
 
 	}else{
 		respuesta.render('menu/new',{

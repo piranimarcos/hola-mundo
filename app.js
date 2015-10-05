@@ -2,7 +2,8 @@ var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),
   mongoose = require('mongoose'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  multer = require('multer');
 
 
 
@@ -19,7 +20,7 @@ models.forEach(function (model) {
 
 
 var app = express();
-
+app.use(multer({dest: "./uploads"}));
 
 require('./config/express')(app, config);
 
